@@ -7,6 +7,7 @@ module deimos.XCB.glx;
 
 import deimos.XCB.xcb;
 import deimos.XCB.xproto;
+import deimos.XCB.xcbext;
 import std.stdint;
 
 extern (C) nothrow:

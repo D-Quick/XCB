@@ -1,6 +1,7 @@
 module deimos.XCB.dri2;
 import deimos.XCB.xcb;
 import deimos.XCB.xproto;
+import deimos.XCB.xcbext;
 import std.stdint;
 
 extern (C) nothrow:

@@ -1,4 +1,5 @@
 module deimos.XCB.xcb;
+import deimos.XCB.xcbext;
 import std.stdint;
 
 extern (C) nothrow:
@@ -303,7 +304,7 @@ void xcb_discard_reply(xcb_connection_t *c, uint sequence);
 * @typedef struct xcb_extension_t xcb_extension_t
 */
 //struct xcb_extension_t xcb_extension_t;  /**< Opaque structure used as key for xcb_get_extension_data_t. */
-struct xcb_extension_t;  /**< Opaque structure used as key for xcb_get_extension_data_t. */
+//struct xcb_extension_t;  /**< Opaque structure used as key for xcb_get_extension_data_t. */
 
 /**
 * @brief Caches reply information from QueryExtension requests.

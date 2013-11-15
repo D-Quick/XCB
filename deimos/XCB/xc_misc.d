@@ -1,5 +1,6 @@
 module deimos.XCB.xc_misc;
 import deimos.XCB.xcb;
+import deimos.XCB.xcbext;
 import std.stdint;
 
 extern (C) nothrow:
