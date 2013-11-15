@@ -1,6 +1,7 @@
 module deimos.XCB.xcbext;
 import deimos.XCB.xcb;
 import std.stdint;
+import core.sys.posix.sys.uio;   // for iovec
 
 extern (C) nothrow:
 
@@ -39,7 +40,7 @@ uint xcb_send_request(xcb_connection_t *c, int flags, iovec *vector, const xcb_p
  * If you are sending requests which won't cause a reply, please note the
  * comment for xcb_writev which explains some sequence number wrap issues.
  * */
-int xcb_take_socket(xcb_connection_t *c, void (*return_socket)(void *closure), void *closure, int flags, uint64_t *sent);
+int xcb_take_socket(xcb_connection_t *c, void function(void *closure) return_socket, void *closure, int flags, uint64_t *sent);
 
 /* You must own the write-side of the socket (you've called
  * xcb_take_socket, and haven't returned from return_socket yet) to call

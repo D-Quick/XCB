@@ -8,8 +8,7 @@ extern (C) nothrow:
 const int XCB_DRI2_MAJOR_VERSION = 1;
 const int XCB_DRI2_MINOR_VERSION = 3;
   
-//extern xcb_extension_t xcb_dri2_id;
-private xcb_extension_t xcb_dri2_id;
+extern xcb_extension_t xcb_dri2_id;
 
 enum xcb_dri2_attachment_t {
     XCB_DRI2_ATTACHMENT_BUFFER_FRONT_LEFT,
