@@ -1,5 +1,6 @@
 module deimos.XCB.xc_misc;
 import deimos.XCB.xcb;
+import std.stdint;
 
 extern (C) nothrow:
 
@@ -11,7 +12,7 @@ extern (C) nothrow:
 
 const int XCB_XCMISC_MAJOR_VERSION = 1;
 const int XCB_XCMISC_MINOR_VERSION = 1;
-  
+
 extern xcb_extension_t xcb_xc_misc_id;
 
 /**

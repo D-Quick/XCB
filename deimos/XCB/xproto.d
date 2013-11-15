@@ -6,6 +6,7 @@ module deimos.XCB.xproto;
  **/
 
 import deimos.XCB.xcb;
+import std.stdint;
 
 extern (C) nothrow:
 

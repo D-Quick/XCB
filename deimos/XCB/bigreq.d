@@ -1,5 +1,6 @@
 module deimos.XCB.bigreq;
 import deimos.XCB.xcb;
+import std.stdint;
 
 extern (C) nothrow:
 

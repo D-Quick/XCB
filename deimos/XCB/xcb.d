@@ -1,4 +1,5 @@
 module deimos.XCB.xcb;
+import std.stdint;
 
 extern (C) nothrow:
 
@@ -39,7 +40,11 @@ const int XCB_CONN_CLOSED_REQ_LEN_EXCEED = 4;
 /** Connection closed, error during parsing display string. */
 const int XCB_CONN_CLOSED_PARSE_ERR = 5;
 
-#define XCB_TYPE_PAD(T,I) (-(I) & (sizeof(T) > 4 ? 3 : sizeof(T) - 1))
+//#define XCB_TYPE_PAD(T,I) (-(I) & (sizeof(T) > 4 ? 3 : sizeof(T) - 1))
+int	XCB_TYPE_PAD(T)(T, size_t index)
+{
+	return -(I) & (T.sizeof > 4 ? 3 : T.sizeof - 1);
+}
 
 /* Opaque structures */
 
@@ -48,7 +53,7 @@ const int XCB_CONN_CLOSED_PARSE_ERR = 5;
 *
 * A structure that contain all data that  XCB needs to communicate with an X server.
 */
-struct xcb_connection_t xcb_connection_t;  /**< Opaque structure containing all data that  XCB needs to communicate with an X server. */
+alias void xcb_connection_t;  /**< Opaque structure containing all data that  XCB needs to communicate with an X server. */
 
 
 /* Other types */
@@ -58,7 +63,7 @@ struct xcb_connection_t xcb_connection_t;  /**< Opaque structure containing all 
 *
 * A generic iterator structure.
 */
-struct {
+struct xcb_generic_iterator_t {
 	void *data;   /**< Data of the current iterator */
 	int rem;    /**< remaining elements */
 	int index;  /**< index of the current iterator */
@@ -69,7 +74,7 @@ struct {
 *
 * A generic reply structure.
 */
-struct {
+struct xcb_generic_reply_t {
 	uint8_t   response_type;  /**< Type of the response */
 	uint8_t  pad0;           /**< Padding */
 	uint16_t sequence;       /**< Sequence number */
@@ -81,7 +86,7 @@ struct {
 *
 * A generic event structure.
 */
-struct {
+struct xcb_generic_event_t {
 	uint8_t   response_type;  /**< Type of the response */
 	uint8_t  pad0;           /**< Padding */
 	uint16_t sequence;       /**< Sequence number */
@@ -95,7 +100,7 @@ struct {
 * An event as sent by the XGE extension. The length field specifies the
 * number of 4-byte blocks trailing the struct.
 */
-struct {
+struct xcb_ge_event_t {
 	uint8_t  response_type;  /**< Type of the response */
 	uint8_t  pad0;           /**< Padding */
 	uint16_t sequence;       /**< Sequence number */
@@ -111,7 +116,7 @@ struct {
 *
 * A generic error structure.
 */
-struct {
+struct xcb_generic_error_t {
 	uint8_t   response_type;  /**< Type of the response */
 	uint8_t   error_code;     /**< Error code */
 	uint16_t sequence;       /**< Sequence number */
@@ -128,7 +133,7 @@ struct {
 *
 * A generic cookie structure.
 */
-struct {
+struct xcb_void_cookie_t {
 	uint sequence;  /**< Sequence number */
 }
 

@@ -1,5 +1,6 @@
 module deimos.XCB.xcbext;
 import deimos.XCB.xcb;
+import std.stdint;
 
 extern (C) nothrow:
 
@@ -13,7 +14,7 @@ struct xcb_extension_t {
 
 /* xcb_out.c */
 
-struct {
+struct xcb_protocol_request_t {
     size_t count;
     xcb_extension_t *ext;
     uint8_t opcode;
